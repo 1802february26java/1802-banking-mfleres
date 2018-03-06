@@ -8,7 +8,7 @@ public interface Banking {
 	public double getBalance();
 	public void login(int userID, String password);
 	public void logout();
-	public double withdraw(double amount) throws NoUserException;
+	public double withdraw(double amount);
 	public void deposit(double amount);
 	public int register(String password);
 	public int getCurrentUser();

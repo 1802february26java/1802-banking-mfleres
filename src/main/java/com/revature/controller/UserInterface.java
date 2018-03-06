@@ -4,12 +4,14 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import com.revature.exception.InvalidLoginException;
+import com.revature.exception.NoUserException;
 import com.revature.exception.UserNotFoundException;
 import com.revature.model.Bank;
+import com.revature.model.Banking;
 
 public class UserInterface {
 	Scanner scanner;
-	Bank bank;
+	Banking bank;
 	
 	public UserInterface(Bank b) {
 		if(b == null) {
@@ -80,6 +82,27 @@ public class UserInterface {
 					}
 					else
 					{
+						System.out.println("There is no user currently logged in.");
+					}
+					break;
+				case "withdraw":
+					try {
+						double amount = Double.parseDouble(args[1]);
+						bank.withdraw(amount);
+						System.out.println("Withdrew $"+amount);
+					} catch (NumberFormatException|ArrayIndexOutOfBoundsException e)  {
+						System.out.println("To withdraw, you need to enter an amount.");
+						System.out.println("Please reenter the command.");
+						System.out.println("Syntax: \"register <password>\"");
+					} catch (NoUserException e) {
+						System.out.println("There is no user currently logged in.");
+					}
+					break;
+				case "balance":
+					try {
+						double balance = bank.getBalance();
+						System.out.println("Your current balance is $" + balance);
+					} catch (NoUserException e) {
 						System.out.println("There is no user currently logged in.");
 					}
 				}

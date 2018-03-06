@@ -117,16 +117,17 @@ public class Bank implements Banking, Serializable {
 	@Override
 	public void logout() {
 		if(currentUser != 0 ) {
-			System.out.println("Logged out");
+			//System.out.println("Logged out");
 			currentUser = 0;
 			updateVault(vaultLocation);
 		} else {
-			System.out.println("No user is currently logged in");
+			throw new NoUserException();
+			//System.out.println("No user is currently logged in");
 		}
 	}
 
 	@Override
-	public double withdraw(double amount) throws NoUserException{
+	public double withdraw(double amount){
 		if(currentUser != 0) {
 			User userObject = vault.get(currentUser);
 			userObject.setBalance(userObject.getBalance()-amount);
@@ -148,7 +149,8 @@ public class Bank implements Banking, Serializable {
 		}
 		else
 		{
-			System.out.println("Please log in before making a deposit.");
+			throw new NoUserException();
+			//System.out.println("Please log in before making a deposit.");
 		}
 	}
 
@@ -162,7 +164,7 @@ public class Bank implements Banking, Serializable {
 		for(int i = 1;;i++) {
 			if(!vault.containsKey(i)) {
 				vault.put(i, new User(i,password));
-				System.out.println("Registered user ID "+i);
+				//System.out.println("Registered user ID "+i);
 				updateVault(vaultLocation);
 				return i;
 			}
