@@ -1,6 +1,6 @@
 package com.revature.exception;
 
-public class NoUserException extends RuntimeException {
+public class InvalidLoginException extends RuntimeException{
 
 	/**
 	 * 

@@ -5,9 +5,13 @@ import java.util.HashMap;
 import com.revature.exception.*;
 import java.io.*;
 
-public class Bank implements Banking {
+public class Bank implements Banking, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final static String VAULT_LOCATION = "src/main/resources/vault.bnk";
-	private HashMap<Integer,Double> vault = new HashMap<>();
+	private HashMap<Integer,User> vault = new HashMap<>();
 	private int currentUser = 0;
 	String vaultLocation = VAULT_LOCATION;
 	
@@ -21,7 +25,12 @@ public class Bank implements Banking {
 			System.out.println("Bank Constructor");
 			vaultLocation = vaultFile;
 			inputStream = new ObjectInputStream(new FileInputStream(vaultFile));
-			@SuppressWarnings("unchecked")
+			
+			Bank bankFromFile = (Bank)inputStream.readObject();
+			this.currentUser = bankFromFile.currentUser;
+			this.vault = bankFromFile.vault;
+			this.vaultLocation = bankFromFile.vaultLocation;
+			/*
 			HashMap<Integer, Double> inputVault = (HashMap<Integer,Double>)inputStream.readObject();
 			vault = inputVault;
 			try {
@@ -31,7 +40,7 @@ public class Bank implements Banking {
 			} catch (EOFException e) {
 				System.out.println("EOF");
 				currentUser = 0;
-			}
+			}*/
 			
 		} catch (FileNotFoundException e) {
 			// Initialize Vault
@@ -57,19 +66,29 @@ public class Bank implements Banking {
 	}
 	
 	private void initVault(String fileLocation) {
+		ObjectOutputStream output = null;
 		try {
-			ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream(fileLocation));
-			System.out.println("Init Hashmap");
-			output.writeObject(vault);
-			System.out.println("init currUser");
-			output.writeInt(currentUser);
-			System.out.println("Done init");
+			output = new ObjectOutputStream(new FileOutputStream(fileLocation));
+			System.out.println("Init Bank File");
+			output.writeObject(this);
+			//System.out.println("init currUser");
+			//output.writeInt(currentUser);
+			//System.out.println("Done init");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			if(output != null) {
+				try {
+					output.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	
@@ -77,7 +96,7 @@ public class Bank implements Banking {
 	public double getBalance(){
 		if(currentUser != 0) {
 			System.out.println(vault.get(currentUser));
-			return vault.get(currentUser);
+			return vault.get(currentUser).getBalance();
 		} else {
 			System.out.println("Please login before checking balance.");
 			return 0.0;
@@ -85,15 +104,13 @@ public class Bank implements Banking {
 	}
 
 	@Override
-	public void login(int userID){
-		if (currentUser != 0) {
-			System.out.println("Currently logged in as user ID " + currentUser +", please log out first.");
-		} else if(vault.containsKey(userID)) {
-			System.out.println("Logged in as user ID " + userID);
+	public void login(int userID, String password){
+		if(vault.containsKey(userID) && vault.get(userID).checkPassword(password)) {
+			//System.out.println("Logged in as user ID " + userID);
 			currentUser = userID;
 			updateVault(vaultLocation);
 		} else {
-			System.out.println("User ID not found.");;
+			throw new InvalidLoginException();
 		}
 	}
 
@@ -111,7 +128,8 @@ public class Bank implements Banking {
 	@Override
 	public double withdraw(double amount) throws NoUserException{
 		if(currentUser != 0) {
-			vault.put(currentUser, vault.get(currentUser) - amount);
+			User userObject = vault.get(currentUser);
+			userObject.setBalance(userObject.getBalance()-amount);
 			updateVault(vaultLocation);
 		}
 		else
@@ -124,7 +142,8 @@ public class Bank implements Banking {
 	@Override
 	public void deposit(double amount) {
 		if(currentUser != 0) {
-			vault.put(currentUser, vault.get(currentUser) + amount);
+			User userObject = vault.get(currentUser);
+			userObject.setBalance(userObject.getBalance()+amount);
 			updateVault(vaultLocation);
 		}
 		else
@@ -139,10 +158,10 @@ public class Bank implements Banking {
 	}
 
 	@Override
-	public int register() {
+	public int register(String password) {
 		for(int i = 1;;i++) {
 			if(!vault.containsKey(i)) {
-				vault.put(i, 0.0);
+				vault.put(i, new User(i,password));
 				System.out.println("Registered user ID "+i);
 				updateVault(vaultLocation);
 				return i;
@@ -155,8 +174,7 @@ public class Bank implements Banking {
 		ObjectOutputStream output = null;
 		try {
 			output = new ObjectOutputStream(new FileOutputStream(fileLocation));
-			output.writeObject(vault);
-			output.writeInt(currentUser);
+			output.writeObject(this);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -175,6 +193,11 @@ public class Bank implements Banking {
 			//System.out.println("Done updating vault file");
 		}
 		
+	}
+
+	@Override
+	public int getCurrentUser() {
+		return currentUser;
 	}
 	
 }
