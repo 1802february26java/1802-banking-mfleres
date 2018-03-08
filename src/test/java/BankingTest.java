@@ -2,32 +2,34 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assume.assumeNoException;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.revature.exception.InvalidLoginException;
 import com.revature.exception.UserNotFoundException;
 import com.revature.model.Bank;
+import com.revature.repository.BankJdbc;
+import com.revature.repository.ConnectionUtil;
 
 public class BankingTest {
 
-	Bank testBank;
+	private static Logger logger = Logger.getLogger(ConnectionUtil.class);
+	static {
+		logger.setLevel(Level.ALL);
+	}
+	
+	BankJdbc testBank;
 	int userA;
 	int userB;
 	
 	
 	@Before
 	public void setup() {
-		this.testBank = new Bank("src/test/resources/TestVault.bnk");
-		this.userA = testBank.register("Hunter1");
-		this.userB = testBank.register("myPassy");
-		testBank.login(userB,"myPassy");
-		testBank.deposit(1000000.0);
-		testBank.logout();
-		testBank.login(userA,"Hunter1");
-		testBank.deposit(500.0);
-		testBank.logout();
-		System.out.println(testBank);
+		logger.trace("Starting test setup");
+		testBank = BankJdbc.getInstance();
+		logger.trace("Test Setup done");
 	}
 	
 	@Test
@@ -42,6 +44,18 @@ public class BankingTest {
 	}
 	
 	@Test
+	public void displayAllTest() {
+		testBank.viewBank();
+	}
+	
+	@Test
+	public void testNextId() {
+		int newId = testBank.register("Password");
+		assertEquals(3, newId);
+		testBank.deregister("Password");
+	}
+	
+	/*@Test
 	public void testFileSaving() {
 		System.out.println("testBank: "+testBank);
 		Bank copy = new Bank("src/test/resources/TestVault.bnk");
@@ -56,10 +70,15 @@ public class BankingTest {
 		testBank.login(userA,"Hunter1");
 		extra.login(extraUser,"dummy");
 		assertNotEquals(extra.getBalance(), testBank.getBalance(), 0.5);
-	}
+	}*/
 	
 	@Test (expected = InvalidLoginException.class)
-	public void testBadPasswords() {
-		testBank.login(userA, "Hunter2");
+	public void testBadPassword() {
+		testBank.login(2, "Password2");
+	}
+	
+	@Test
+	public void testGoodLogin() {
+		testBank.login(2, "Password");
 	}
 }

@@ -201,5 +201,17 @@ public class Bank implements Banking, Serializable {
 	public int getCurrentUser() {
 		return currentUser;
 	}
+
+	@Override
+	public void register(int id, String password) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deregister(String password) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
