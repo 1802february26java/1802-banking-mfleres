@@ -1799,3 +1799,409 @@ java.sql.SQLException: ORA-01008: not all variables bound
 2018-03-07 22:50:10 INFO  ConnectionUtil:23 - Attempting to get connection
 2018-03-07 22:50:10 TRACE BankJdbc:194 - sql = "DELETE FROM BANK_USER WHERE U_ID = 3 AND U_HASH_PASSWORD = 1281629883"
 2018-03-07 22:50:10 TRACE BankJdbc:196 - DEregistered user id 3
+2018-03-08 10:58:35 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 10:58:35 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 10:58:37 INFO  ConnectionUtil:50 - Connection successful
+2018-03-08 10:58:37 INFO  ConnectionUtil:50 - Connection successful
+2018-03-08 10:58:58 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 10:58:58 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 10:58:58 TRACE BankJdbc:159 - Printing out bank data...
+2018-03-08 10:58:58 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 10:58:59 TRACE BankJdbc:165 - Executing query
+2018-03-08 10:58:59 ERROR BankJdbc:173 - Error in viewBank().
+java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:202)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:45)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:766)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1244)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:420)
+	at com.revature.repository.BankJdbc.viewBank(BankJdbc.java:166)
+	at BankingTest.displayAllTest(BankingTest.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+2018-03-08 14:31:47 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 14:31:47 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 14:31:47 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:47 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 TRACE BankJdbc:154 - Next available ID = 3
+2018-03-08 14:31:48 TRACE BankJdbc:128 - Setting id to 3
+2018-03-08 14:31:48 TRACE BankJdbc:131 - 1281629883
+2018-03-08 14:31:48 TRACE BankJdbc:134 - Registered user id 3
+2018-03-08 14:31:48 INFO  BankJdbc:41 - Getting balance for user ID 3
+2018-03-08 14:31:48 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 INFO  ConnectionUtil:39 - Starting Balance: 0.0
+2018-03-08 14:31:48 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 INFO  BankJdbc:41 - Getting balance for user ID 3
+2018-03-08 14:31:48 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 INFO  BankJdbc:41 - Getting balance for user ID 3
+2018-03-08 14:31:48 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 INFO  BankJdbc:41 - Getting balance for user ID 3
+2018-03-08 14:31:48 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:31:48 TRACE BankJdbc:209 - sql = "DELETE FROM BANK_USER WHERE U_ID = 3 AND U_HASH_PASSWORD = 1281629883"
+2018-03-08 14:31:48 TRACE BankJdbc:211 - DEregistered user id 3
+2018-03-08 14:32:22 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 14:32:22 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 14:32:22 TRACE BankJdbc:174 - Printing out bank data...
+2018-03-08 14:32:22 INFO  ConnectionUtil:23 - Attempting to get connection
+2018-03-08 14:32:23 TRACE BankJdbc:180 - Executing query
+2018-03-08 14:32:23 TRACE BankJdbc:182 - Begin iteration
+2018-03-08 14:32:23 TRACE BankJdbc:184 - Displaying element
+2018-03-08 14:32:23 TRACE BankJdbc:184 - Displaying element
+2018-03-08 16:36:51 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 16:36:51 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 16:36:51 TRACE BankJdbc:174 - Printing out bank data...
+2018-03-08 16:36:53 TRACE BankJdbc:180 - Executing query
+2018-03-08 16:36:53 ERROR BankJdbc:188 - Error in viewBank().
+java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:202)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:45)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:766)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1244)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:420)
+	at com.revature.repository.BankJdbc.viewBank(BankJdbc.java:181)
+	at BankingTest.displayAllTest(BankingTest.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+2018-03-08 16:43:33 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 16:43:33 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 16:43:33 TRACE BankJdbc:174 - Printing out bank data...
+2018-03-08 16:43:34 TRACE BankJdbc:180 - Executing query
+2018-03-08 16:43:34 TRACE BankJdbc:182 - Begin iteration
+2018-03-08 16:45:58 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 16:45:58 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 16:45:58 TRACE BankJdbc:174 - Printing out bank data...
+2018-03-08 16:45:58 TRACE BankJdbc:180 - Executing query
+2018-03-08 16:45:58 TRACE BankJdbc:182 - Begin iteration
+2018-03-08 16:46:52 INFO  ConnectionUtil:50 - Connection successful
+2018-03-08 16:47:39 INFO  ConnectionUtil:50 - Connection successful
+2018-03-08 16:48:01 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-08 16:48:01 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-08 16:48:01 TRACE BankJdbc:174 - Printing out bank data...
+2018-03-08 16:48:02 TRACE BankJdbc:180 - Executing query
+2018-03-08 16:48:02 ERROR BankJdbc:188 - Error in viewBank().
+java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:202)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:45)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:766)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1244)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:420)
+	at com.revature.repository.BankJdbc.viewBank(BankJdbc.java:181)
+	at BankingTest.displayAllTest(BankingTest.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+2018-03-09 11:15:42 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 11:15:42 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 11:15:42 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:15:46 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:15:46 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:21:54 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 11:21:54 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 11:21:54 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:21:55 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:21:55 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:22:28 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 11:22:28 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 11:22:29 TRACE BankJdbc:155 - Next available ID = 2
+2018-03-09 11:22:29 TRACE BankJdbc:129 - Setting id to 2
+2018-03-09 11:22:29 TRACE BankJdbc:132 - 1281629883
+2018-03-09 11:22:29 TRACE BankJdbc:135 - Registered user id 2
+2018-03-09 11:22:30 TRACE BankJdbc:224 - sql = "DELETE FROM BANK_USER WHERE U_ID = 2 AND U_HASH_PASSWORD = 1281629883"
+2018-03-09 11:22:30 TRACE BankJdbc:226 - DEregistered user id 2
+2018-03-09 11:26:01 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 11:26:01 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 11:26:01 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:26:02 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:26:02 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:29:05 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:29:05 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:29:05 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:32:01 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:32:01 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:32:01 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:33:50 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:33:51 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:33:51 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:35:37 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:35:48 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:35:48 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:36:19 TRACE BankJdbc:155 - Next available ID = 2
+2018-03-09 11:36:19 TRACE BankJdbc:129 - Setting id to 2
+2018-03-09 11:36:19 TRACE BankJdbc:132 - -1364457327
+2018-03-09 11:36:19 TRACE BankJdbc:135 - Registered user id 2
+2018-03-09 11:36:28 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:36:37 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:36:41 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:37:59 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 11:37:59 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 11:38:00 TRACE BankJdbc:155 - Next available ID = 3
+2018-03-09 11:38:00 TRACE BankJdbc:129 - Setting id to 3
+2018-03-09 11:38:00 TRACE BankJdbc:132 - 1281629883
+2018-03-09 11:38:00 TRACE BankJdbc:135 - Registered user id 3
+2018-03-09 11:38:00 TRACE BankJdbc:42 - Getting balance for user ID 3
+2018-03-09 11:38:00 INFO  ConnectionUtil:39 - Starting Balance: 0.0
+2018-03-09 11:38:00 TRACE BankJdbc:42 - Getting balance for user ID 3
+2018-03-09 11:38:00 TRACE BankJdbc:42 - Getting balance for user ID 3
+2018-03-09 11:38:00 TRACE BankJdbc:42 - Getting balance for user ID 3
+2018-03-09 11:38:00 TRACE BankJdbc:224 - sql = "DELETE FROM BANK_USER WHERE U_ID = 3 AND U_HASH_PASSWORD = 1281629883"
+2018-03-09 11:38:00 TRACE BankJdbc:226 - DEregistered user id 3
+2018-03-09 11:39:09 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:39:12 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:39:25 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:39:28 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:40:25 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:40:25 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:40:25 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:40:42 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:40:42 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:40:42 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 11:41:11 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:41:18 TRACE BankJdbc:42 - Getting balance for user ID 2
+2018-03-09 11:41:36 TRACE BankJdbc:175 - Printing out bank data...
+2018-03-09 11:41:36 TRACE BankJdbc:181 - Executing query
+2018-03-09 11:41:36 TRACE BankJdbc:183 - Begin iteration
+2018-03-09 12:46:27 ERROR BankJdbc:88 - Error while getting balance.
+java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:673)
+	at oracle.jdbc.driver.PhysicalConnection.<init>(PhysicalConnection.java:715)
+	at oracle.jdbc.driver.T4CConnection.<init>(T4CConnection.java:385)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:30)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:564)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at com.revature.repository.ConnectionUtil.getConnection(ConnectionUtil.java:39)
+	at com.revature.repository.BankJdbc.login(BankJdbc.java:68)
+	at com.revature.controller.UserInterface.startPrompts(UserInterface.java:60)
+	at com.revature.Main.main(Main.java:18)
+Caused by: oracle.net.ns.NetException: The Network Adapter could not establish the connection
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:445)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:464)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:594)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:229)
+	at oracle.jdbc.driver.T4CConnection.connect(T4CConnection.java:1360)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:486)
+	... 10 more
+Caused by: java.net.UnknownHostException: myrevaturerds.cwkouucgucbd.us-east-1.rds.amazonaws.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:117)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:133)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:411)
+	... 15 more
+2018-03-09 16:34:28 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:34:28 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:34:32 INFO  ConnectionUtil:52 - Starting Balance: 5000000.0
+2018-03-09 16:34:34 ERROR BankJdbc:251 - Error in deregister().
+java.sql.SQLIntegrityConstraintViolationException: ORA-02292: integrity constraint (BANK_DB.FK_BANK_USER) violated - child record found
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.BankJdbc.deregister(BankJdbc.java:243)
+	at BankingTest.checkAccurateWithdrawl(BankingTest.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+2018-03-09 16:34:34 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:34:34 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:34:34 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:34:34 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:34:35 INFO  ConnectionUtil:40 - Starting Balance: 50000.0
+2018-03-09 16:34:36 ERROR BankJdbc:251 - Error in deregister().
+java.sql.SQLIntegrityConstraintViolationException: ORA-02292: integrity constraint (BANK_DB.FK_BANK_USER) violated - child record found
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.BankJdbc.deregister(BankJdbc.java:243)
+	at BankingTest.checkAccurateDeposit(BankingTest.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:538)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:760)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:460)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:206)
+2018-03-09 16:34:36 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:34:36 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:34:36 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:34:36 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:42:33 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:42:33 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:42:34 INFO  ConnectionUtil:52 - Starting Balance: 5000000.0
+2018-03-09 16:42:35 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:42:35 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:42:35 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:42:35 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:42:36 INFO  ConnectionUtil:40 - Starting Balance: 50000.0
+2018-03-09 16:42:37 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:42:37 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:42:37 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:42:37 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:45:02 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:45:02 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:45:04 INFO  ConnectionUtil:52 - Starting Balance: 5000000.0
+2018-03-09 16:45:05 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:45:05 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:45:06 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:45:06 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:45:07 INFO  ConnectionUtil:40 - Starting Balance: 50000.0
+2018-03-09 16:45:07 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:45:07 TRACE ConnectionUtil:32 - Test Setup done
+2018-03-09 16:45:08 TRACE ConnectionUtil:30 - Starting test setup
+2018-03-09 16:45:08 TRACE ConnectionUtil:32 - Test Setup done

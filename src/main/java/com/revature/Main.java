@@ -4,6 +4,7 @@ import com.revature.controller.UserInterface;
 import com.revature.exception.NoUserException;
 import com.revature.exception.UserNotFoundException;
 import com.revature.model.*;
+import com.revature.repository.BankJdbc;
 
 /** 
  * Create an instance of your controller and launch your application.
@@ -13,8 +14,7 @@ import com.revature.model.*;
 public class Main {
 
 	public static void main(String[] args) {
-		Bank b = new Bank();
-		UserInterface ui = new UserInterface(b);
+		UserInterface ui = new UserInterface(BankJdbc.getInstance());
 		ui.startPrompts();
 	}
 }

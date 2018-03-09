@@ -1,5 +1,6 @@
 package com.revature.controller;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -8,12 +9,14 @@ import com.revature.exception.NoUserException;
 import com.revature.exception.UserNotFoundException;
 import com.revature.model.Bank;
 import com.revature.model.Banking;
+import com.revature.model.Transaction;
+import com.revature.repository.BankJdbc;
 
 public class UserInterface {
 	Scanner scanner;
 	Banking bank;
 	
-	public UserInterface(Bank b) {
+	public UserInterface(Banking b) {
 		if(b == null) {
 			throw new IllegalArgumentException();
 		} else {
@@ -40,7 +43,14 @@ public class UserInterface {
 				String command = args[0].toLowerCase();
 				switch(command) {
 				case "exit":
-					bank.logout();
+					try{
+						if(bank.getCurrentUser() != 0) {
+							System.out.println("User ID " + bank.getCurrentUser() + " has logged out.");
+							bank.logout();
+						}
+					} catch (UserNotFoundException e){
+						
+					}
 					System.out.println("Exiting Banking App");
 					exitFlag = true;
 					break;
@@ -50,15 +60,14 @@ public class UserInterface {
 						try {
 							id = Integer.parseInt(args[1]);
 							bank.login(id,args[2]);
-							System.out.println("Successfully logged in as " + id);
+							System.out.println("Successfully logged in with User ID " + id);
 						} catch (InvalidLoginException | NumberFormatException | UserNotFoundException e) {
 							System.out.println("Invalid Login Information");
 							break;
 						}
 					}else {
 						System.out.println("To login, you need to input your user ID and password.");
-						System.out.println("Please reenter the command with proper syntax.");
-						System.out.println("Syntax \"login <user ID> <password>");
+						System.out.println("Syntax: \"login <user ID> <password>");
 					}
 					break;
 				case "help":
@@ -71,7 +80,6 @@ public class UserInterface {
 						System.out.println("Your user ID is " + newId);
 					}else {
 						System.out.println("To register, you need a password.");
-						System.out.println("Please reenter the command.");
 						System.out.println("Syntax: \"register <password>\"");
 					}
 					break;
@@ -92,8 +100,21 @@ public class UserInterface {
 						System.out.println("Withdrew $"+amount);
 					} catch (NumberFormatException|ArrayIndexOutOfBoundsException e)  {
 						System.out.println("To withdraw, you need to enter an amount.");
-						System.out.println("Please reenter the command.");
 						System.out.println("Syntax: \"register <password>\"");
+						
+					} catch (NoUserException e) {
+						System.out.println("There is no user currently logged in.");
+					}
+					break;
+				case "deposit":
+					try {
+						double amount = Double.parseDouble(args[1]);
+						bank.deposit(amount);
+						System.out.println("Deposited $"+amount);
+					} catch (NumberFormatException|ArrayIndexOutOfBoundsException e)  {
+						System.out.println("To deposit, you need to enter an amount.");
+						System.out.println("Syntax: \"register <password>\"");
+						
 					} catch (NoUserException e) {
 						System.out.println("There is no user currently logged in.");
 					}
@@ -105,6 +126,20 @@ public class UserInterface {
 					} catch (NoUserException e) {
 						System.out.println("There is no user currently logged in.");
 					}
+					break;
+				case "display":
+					if(bank.getCurrentUser() == 1) {
+						((BankJdbc) bank).viewBank();
+					}
+					break;
+				case "history":
+					//Display transaction history
+					List<Transaction> transactionList = bank.getTransactionHistory();
+					System.out.println("|  ID  |       Timestamp         | Alteration |    Balance    |");
+					System.out.println("|------|-------------------------|------------|---------------|");
+					for(Transaction t : transactionList) {
+						System.out.println(t);
+					}
 				}
 			}
 		}
@@ -112,8 +147,11 @@ public class UserInterface {
 	
 	private void listOptions() {
 		System.out.println("");
-		System.out.println("login <ID> <Password>");
-		System.out.println("register <Password>");
+		System.out.println("login <ID> <password>");
+		System.out.println("register <password>");
+		System.out.println("deposit <amount>");
+		System.out.println("withdraw <amount>");
+		System.out.println("balance");
 		System.out.println("logout");
 		System.out.println("exit");
 	}

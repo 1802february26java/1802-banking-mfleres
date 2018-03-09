@@ -20,22 +20,22 @@ public class ConnectionUtil {
 	}
 
 	public static Connection getConnection() throws SQLException {
-		logger.info("Attempting to get connection");
-		//String url = "jdbc:oracle:thin:@myrevaturerds.cwkouucgucbd.us-east-1.rds.amazonaws.com:1521:ORCL";
-		//String username = "Bank_DB";
-		//String password = "p4ssw0rd";
-		
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String username = "CELEBRITY_DB";
+		//logger.info("Attempting to get connection");
+		String url = "jdbc:oracle:thin:@myrevaturerds.cwkouucgucbd.us-east-1.rds.amazonaws.com:1521:ORCL";
+		String username = "Bank_DB";
 		String password = "p4ssw0rd";
+		
+		//String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		//String username = "CELEBRITY_DB";
+		//String password = "p4ssw0rd";
 
-		try {
+		/*try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
 			logger.error("Could not find the oracle driver", e);
 			
 			e.printStackTrace();
-		}
+		}*/
 		return DriverManager.getConnection(url, username, password);
 	}
 

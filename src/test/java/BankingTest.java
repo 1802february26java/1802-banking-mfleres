@@ -34,13 +34,26 @@ public class BankingTest {
 	
 	@Test
 	public void checkAccurateDeposit() {
-		testBank.login(userB,"myPassy");
-		System.out.println(testBank.getBalance());
+		userA = testBank.register("Password");
+		testBank.deposit(50000.0);
 		double oldBalance = testBank.getBalance();
+		logger.info("Starting Balance: " + oldBalance);
 		testBank.deposit(5.0);
 		assertEquals(oldBalance+5.0, testBank.getBalance(),0.1);
 		assertNotEquals(oldBalance, testBank.getBalance(), 0.1);
-		testBank.logout();
+		testBank.deregister("Password");
+	}
+	
+	@Test
+	public void checkAccurateWithdrawl() {
+		userA = testBank.register("Password");
+		testBank.deposit(5000000.0);
+		double oldBalance = testBank.getBalance();
+		logger.info("Starting Balance: " + oldBalance);
+		testBank.withdraw(5.0);
+		assertEquals(oldBalance-5.0, testBank.getBalance(),0.1);
+		assertNotEquals(oldBalance, testBank.getBalance(), 0.1);
+		testBank.deregister("Password");
 	}
 	
 	@Test
@@ -48,37 +61,16 @@ public class BankingTest {
 		testBank.viewBank();
 	}
 	
-	@Test
-	public void testNextId() {
-		int newId = testBank.register("Password");
-		assertEquals(3, newId);
-		testBank.deregister("Password");
-	}
-	
-	/*@Test
-	public void testFileSaving() {
-		System.out.println("testBank: "+testBank);
-		Bank copy = new Bank("src/test/resources/TestVault.bnk");
-		System.out.println("Copy: "+copy);
-		Bank extra = new Bank("src/test/resources/TestVault2.bnk");
-		int extraUser = extra.register("dummy");
-		System.out.println("Extra: "+extra);
-		copy.login(userB,"myPassy");
-		testBank.login(userB,"myPassy");
-		assertEquals(copy.getBalance(), testBank.getBalance(),0.5);
-		testBank.logout();
-		testBank.login(userA,"Hunter1");
-		extra.login(extraUser,"dummy");
-		assertNotEquals(extra.getBalance(), testBank.getBalance(), 0.5);
-	}*/
-	
 	@Test (expected = InvalidLoginException.class)
-	public void testBadPassword() {
-		testBank.login(2, "Password2");
+	public void testBadLogin() {
+		testBank.login(1, "Password2");
 	}
 	
 	@Test
 	public void testGoodLogin() {
-		testBank.login(2, "Password");
+		int newUser = testBank.register("password");
+		testBank.logout();
+		testBank.login(newUser, "password");
+		testBank.deregister("password");
 	}
 }

@@ -1,6 +1,7 @@
 package com.revature.model;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.revature.exception.*;
 import java.io.*;
@@ -141,7 +142,7 @@ public class Bank implements Banking, Serializable {
 	}
 
 	@Override
-	public void deposit(double amount) {
+	public double deposit(double amount) {
 		if(currentUser != 0) {
 			User userObject = vault.get(currentUser);
 			userObject.setBalance(userObject.getBalance()+amount);
@@ -152,6 +153,7 @@ public class Bank implements Banking, Serializable {
 			throw new NoUserException();
 			//System.out.println("Please log in before making a deposit.");
 		}
+		return 0;
 	}
 
 	@Override
@@ -212,6 +214,12 @@ public class Bank implements Banking, Serializable {
 	public void deregister(String password) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Transaction> getTransactionHistory() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
