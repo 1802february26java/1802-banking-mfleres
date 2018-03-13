@@ -134,11 +134,15 @@ public class UserInterface {
 					break;
 				case "history":
 					//Display transaction history
-					List<Transaction> transactionList = bank.getTransactionHistory();
-					System.out.println("|  ID  |       Timestamp         | Alteration |    Balance    |");
-					System.out.println("|------|-------------------------|------------|---------------|");
-					for(Transaction t : transactionList) {
-						System.out.println(t);
+					try {
+						List<Transaction> transactionList = bank.getTransactionHistory();
+						System.out.println("|  ID  |       Timestamp         | Alteration |    Balance    |");
+						System.out.println("|------|-------------------------|------------|---------------|");
+						for(Transaction t : transactionList) {
+							System.out.println(t);
+						}
+					} catch (NoUserException e) {
+						System.out.println("There is no user currently logged in.");
 					}
 				}
 			}
@@ -146,12 +150,12 @@ public class UserInterface {
 	}
 	
 	private void listOptions() {
-		System.out.println("");
 		System.out.println("login <ID> <password>");
 		System.out.println("register <password>");
 		System.out.println("deposit <amount>");
 		System.out.println("withdraw <amount>");
 		System.out.println("balance");
+		System.out.println("history");
 		System.out.println("logout");
 		System.out.println("exit");
 	}

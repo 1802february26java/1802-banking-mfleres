@@ -242,7 +242,7 @@ public class BankJdbc implements Banking{
 				logger.trace("sql = \"DELETE FROM BANK_USER WHERE U_ID = "+currentUser+" AND U_HASH_PASSWORD = "+password.hashCode()+"\"");
 				clearTransactionHistory();
 				if(statement.executeUpdate() > 0) {
-					logger.trace("DEregistered user id "+currentUser);
+					logger.trace("Deregistered user id "+currentUser);
 					currentUser = 0;
 				}
 				else {
